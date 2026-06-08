@@ -1,48 +1,296 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เค้ามีอะไรจะบอกเธอนะ...</title>
+    <title>To My Dearest Earn ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;600&family=Caveat:wght@700&family=Mitr:wght@400;500&display=swap"
+        rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            background-color: #ffe6eb;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            padding-top: 100px;
-            color: #d63384;
+            background: linear-gradient(135deg, #ffeef2 0%, #ffd6e0 100%);
+            font-family: 'Anuphan', sans-serif;
+            color: #4a1525;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
         }
-        .box {
-            background: white;
+
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 75, 110, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            width: 100%;
+            max-width: 550px;
             padding: 30px;
-            border-radius: 20px;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
         }
-        h1 { font-size: 2.5rem; }
-        p { font-size: 1.2rem; color: #6c757d; }
-        .btn {
-            background-color: #ff4d6d;
-            color: white;
-            border: none;
-            padding: 12px 30px;
+
+        /* ตกแต่งหัวใจลอยรอบๆ */
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 77, 109, 0.2);
+            font-size: 24px;
+            animation: floatUpDown 3s infinite ease-in-out;
+        }
+
+        .fh1 {
+            top: 20px;
+            left: 20px;
+            animation-delay: 0s;
+        }
+
+        .fh2 {
+            top: 40px;
+            right: 30px;
+            animation-delay: 0.5s;
+            font-size: 32px;
+        }
+
+        .fh3 {
+            bottom: 30px;
+            left: 30px;
+            animation-delay: 1s;
+        }
+
+        .fh4 {
+            bottom: 40px;
+            right: 25px;
+            animation-delay: 1.5s;
+        }
+
+        h1 {
+            font-family: 'Mitr', sans-serif;
+            font-size: 2.2rem;
+            color: #ff4d6d;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 320px;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            position: relative;
+            transform: rotate(-1deg);
+            transition: transform 0.4s ease;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            background-color: #f5f5f5;
+        }
+
+        /* ป้ายเทปเขียนโน้ตแปะรูป */
+        .tape {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .message-box {
+            background: #fff5f7;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-left: 5px solid #ff758f;
+            text-align: left;
+        }
+
+        .message-box p {
             font-size: 1.1rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: 0.3s;
+            line-height: 1.7;
+            color: #5c2c3a;
+            margin-bottom: 12px;
+        }
+
+        .message-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .signature {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            color: #ff4d6d;
+            text-align: right;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .interactive-section {
             margin-top: 20px;
         }
-        .btn:hover { background-color: #c9184a; transform: scale(1.1); }
+
+        .question {
+            font-family: 'Mitr', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #c9184a;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            height: 55px;
+        }
+
+        .btn {
+            font-family: 'Anuphan', sans-serif;
+            font-weight: 600;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        #yesBtn {
+            background: #ff4d6d;
+            color: white;
+        }
+
+        #yesBtn:hover {
+            background: #06d6a0;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(6, 214, 160, 0.3);
+        }
+
+        #noBtn {
+            background: #fff;
+            color: #ff4d6d;
+            border: 2px solid #ff4d6d;
+            position: absolute;
+            right: calc(50% - 130px);
+        }
+
+        /* แอนิเมชั่น */
+        @keyframes floatUpDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* สำหรับสลับหน้าแสดงความยินดี */
+        .hidden {
+            display: none;
+        }
+
+        .celebrate-card h2 {
+            font-family: 'Mitr', sans-serif;
+            font-size: 2rem;
+            color: #06d6a0;
+            margin-bottom: 15px;
+        }
+
+        .celebrate-card p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .heart-icon {
+            font-size: 4rem;
+            color: #ff4d6d;
+            margin: 20px 0;
+            animation: pulse 0.8s infinite alternate;
+        }
+
+        @keyframes pulse {
+            to {
+                transform: scale(1.2);
+            }
+        }
     </style>
 </head>
+
 <body>
 
-    <div class="box">
-        <h1>❤️ ถึง...คนดีของเค้า ❤️</h1>
-        <p>แค่อยากจะบอกว่า... รักเธอนะครับ</p>
-        <p>ขอบคุณที่อยู่ข้างกันนะ วันนี้และวันต่อๆ ไปก็อยู่ให้บ่นไปนานๆ เลยนะคุณแฟน</p>
-        <button class="btn" onclick="alert('งื้อออ แฟนใครเนี่ยน่ารักจัง! รับทราบแล้วกอดทีนึงดิ้ 🥰')">กดถ้ารักเค้าเหมือนกัน</button>
+    <div class="container" id="mainCard">
+        <div class="floating-heart fh1">❤️</div>
+        <div class="floating-heart fh2">💖</div>
+        <div class="floating-heart fh3">💕</div>
+        <div class="floating-heart fh4">💗</div>
+
+        <h1>❤️ To My Earn ❤️</h1>
+
+        <div class="photo-frame">
+            <img src="images/Unknown.jpg" alt="รูปคุณเอิร์น">
+        </div>
+
+        <div class="message-box">
+            <p>ถึงเอิร์นคนสวยของเค้า...</p>
+            <p>แค่อยากจะบอกว่า ดีใจมากๆ เลยนะที่มีเธอเข้ามาในชีวิต ขอบคุณสำหรับทุกๆ รอยยิ้ม ความใส่ใจ
+                และกำลังใจที่มอบให้กันเสมอมาเลยนะ</p>
+            <p>อยู่เป็นความสุขของกันและกันแบบนี้ไปนานๆ เลยนะคนสวยของเค้า รักเอิร์นที่สุดเลย ❤️</p>
+            <span class="signature">Always Yours</span>
+        </div>
+
+        <div class="interactive-section">
+            <p class="question">เอิร์นรักเค้าเหมือนกันมั้ย? 🥰</p>
+            <div class="btn-group">
+                <button class="btn" id="yesBtn" onclick="celebrate()">รักที่สุด!</button>
+            </div>
+        </div>
     </div>
 
+    <div class="container hidden" id="happyCard">
+        <div class="heart-icon">🥰</div>
+        <h2>งื้ออออ น่ารักที่สุดเลย!</h2>
+        <p>เค้าบันทึกคำตอบไว้ในใจเรียบร้อยแล้วน้าาา</p>
+        <p style="margin-top: 15px; font-weight: 600; color: #ff4d6d;">กอดที!! ร๊ากนะค๊าบ ❤️</p>
+    </div>
+
+    <script>
+
+
+        // ฟังก์ชันเปลี่ยนหน้าเมื่อกด "รักที่สุด!"
+        function celebrate() {
+            document.getElementById('mainCard').classList.add('hidden');
+            document.getElementById('happyCard').classList.remove('hidden');
+        }
+    </script>
 </body>
+
 </html>
